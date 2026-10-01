@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>AquaWatch Dashboard</title>
+<style>
+body{font-family:system-ui,Arial,sans-serif;margin:0;background:#eef4f7;color:#123}
+header{background:#01579b;color:#fff;padding:18px 28px}
+header h1{margin:0;font-size:26px} header p{margin:4px 0 0;opacity:.85}
+main{padding:20px 28px;max-width:1200px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.card{background:#fff;border-radius:10px;box-shadow:0 2px 6px #0002;overflow:hidden}
+.card-head{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;font-weight:700;background:#e1f0fa}
+.badge{color:#fff;font-size:11px;padding:3px 10px;border-radius:20px}
+.card-body{padding:10px 14px} .metric{display:flex;justify-content:space-between;
+  padding:3px 0;font-size:15px} .meta{color:#567;font-size:12px;margin-top:4px}
+.card img{width:100%;display:block}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{padding:8px 10px;border-bottom:1px solid #dde;text-align:left}
+.sev-critical{color:#d32f2f;font-weight:700} .sev-warning{color:#b26a00;font-weight:700}
+footer{padding:16px 28px;color:#567;font-size:12px}
+.note{background:#fff8e1;border-left:4px solid #f9a825;padding:10px 14px;margin:16px 0;font-size:13px}
+</style></head>
+<body>
+<header><h1>🌊 AquaWatch</h1>
+<p>Crowd-sourced water-quality monitoring · UN SDG 6: Clean Water &amp; Sanitation</p></header>
+<main>
+<div class="note"><b>Note:</b> the pH 6.5–8.5 reference band is a general guideline shown
+for context only — <b>not medical advice</b>. Confirm water safety with your local utility.</div>
+<h2>Monitoring stations</h2>
+<div class="grid">
+    <div class="card">
+      <div class="card-head"><span>Harbourfront Intake</span>
+        <span class="badge" style="background:#d32f2f">CRITICAL</span></div>
+      <div class="card-body">
+        <div class="metric"><span>pH</span><b>7.26</b></div>
+        <div class="metric"><span>Turbidity</span><b>0.6 NTU</b></div>
+        <div class="meta">HW-01 · 2026-10-01T05:00:00 UTC</div>
+      </div>
+      <img src="charts/chart_HW-01.png" alt="chart">
+    </div>
+    <div class="card">
+      <div class="card-head"><span>Red Hill Creek</span>
+        <span class="badge" style="background:#2e7d32">OK</span></div>
+      <div class="card-body">
+        <div class="metric"><span>pH</span><b>7.26</b></div>
+        <div class="metric"><span>Turbidity</span><b>1.7 NTU</b></div>
+        <div class="meta">HW-02 · 2026-10-01T05:00:00 UTC</div>
+      </div>
+      <img src="charts/chart_HW-02.png" alt="chart">
+    </div>
+    <div class="card">
+      <div class="card-head"><span>Spencer Creek</span>
+        <span class="badge" style="background:#d32f2f">CRITICAL</span></div>
+      <div class="card-body">
+        <div class="metric"><span>pH</span><b>7.09</b></div>
+        <div class="metric"><span>Turbidity</span><b>0.5 NTU</b></div>
+        <div class="meta">HW-03 · 2026-10-01T05:00:00 UTC</div>
+      </div>
+      <img src="charts/chart_HW-03.png" alt="chart">
+    </div>
+    <div class="card">
+      <div class="card-head"><span>Cootes Paradise</span>
+        <span class="badge" style="background:#2e7d32">OK</span></div>
+      <div class="card-body">
+        <div class="metric"><span>pH</span><b>7.34</b></div>
+        <div class="metric"><span>Turbidity</span><b>0.7 NTU</b></div>
+        <div class="meta">HW-04 · 2026-10-01T05:00:00 UTC</div>
+      </div>
+      <img src="charts/chart_HW-04.png" alt="chart">
+    </div>
+    <div class="card">
+      <div class="card-head"><span>Fifty Point</span>
+        <span class="badge" style="background:#2e7d32">OK</span></div>
+      <div class="card-body">
+        <div class="metric"><span>pH</span><b>7.25</b></div>
+        <div class="metric"><span>Turbidity</span><b>0.4 NTU</b></div>
+        <div class="meta">HW-05 · 2026-10-01T05:00:00 UTC</div>
+      </div>
+      <img src="charts/chart_HW-05.png" alt="chart">
+    </div></div>
+<h2>Recent alerts</h2>
+<table><tr><th>Station</th><th>Severity</th><th>Start</th><th>End</th><th>Summary</th></tr><tr><td>Harbourfront Intake</td><td class='sev-critical'>CRITICAL</td><td>2026-09-29T16:00:00</td><td>2026-09-29T22:00:00</td><td>ph/turbidity anomaly at Harbourfront Intake: 7 consecutive anomalous readings (peak turbidity 0.3 NTU, worst pH 5.22; pH 6.5-8.5 is a guideline band, not medical advice)</td></tr><tr><td>Spencer Creek</td><td class='sev-critical'>CRITICAL</td><td>2026-09-28T06:00:00</td><td>2026-09-28T11:00:00</td><td>turbidity anomaly at Spencer Creek: 6 consecutive anomalous readings (peak turbidity 48.5 NTU, worst pH 7.50; pH 6.5-8.5 is a guideline band, not medical advice)</td></tr></table>
+</main>
+<footer>AquaWatch v0.1.0 · synthetic demo data · offline, no API keys</footer>
+</body></html>

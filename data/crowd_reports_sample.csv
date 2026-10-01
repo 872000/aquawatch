@@ -1,0 +1,5 @@
+station_id,ts,ph,turbidity,reporter
+HW-03,2026-09-28T14:00:00,7.0,52.0,sam_riverkeeper
+HW-04,2026-09-25T09:00:00,7.3,1.1,ava_hikes
+HW-02,2026-09-25T09:00:00,7.1,0.8,marcus_fishes
+HW-05,2026-09-26T18:30:00,7.4,0.6,priya_paddles
