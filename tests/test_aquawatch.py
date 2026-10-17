@@ -157,3 +157,18 @@ def test_cli_demo_end_to_end(tmp_path):
     assert (out / "index.html").exists()
     for sid in ("HW-01", "HW-02", "HW-03", "HW-04", "HW-05"):
         assert (out / "charts" / f"chart_{sid}.png").exists()
+
+
+def test_ph_band_guard_flags_out_of_band_reading():
+    """A pH reading outside 6.5-8.5 must be flagged by the PH band guard."""
+    readings = [
+        {"ts": (WEEK_START + timedelta(hours=h)).strftime(TS_FMT),
+         "ph": 7.2, "turbidity": 1.0}
+        for h in range(24)
+    ]
+    readings.append({"ts": (WEEK_START + timedelta(hours=24)).strftime(TS_FMT),
+                     "ph": 4.1, "turbidity": 1.0})
+    anomalies = detectmod.detect_station(STATION[0], readings)
+    flagged = [a for a in anomalies if a["metric"] == "ph"]
+    assert flagged, "out-of-band pH reading was not flagged"
+    assert "ph_band" in flagged[0]["rules"]
